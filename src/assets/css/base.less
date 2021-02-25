@@ -1,0 +1,555 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #f5f5f9;
+  font-family: @family-normal;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+textarea,
+div {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+@font-face {
+  font-family: 'DINPro-medium';
+  src: url('../fonts/DINPro-Medium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DINPro-regular';
+  src: url('../fonts/DINPro-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* maps语法vscode报错，故采用变量 */
+@color-head: #333; //头部标题
+@color-title: #293040; //标题，label文本
+@color-content: #717787; //内容文本
+@color-description: #a1a6b3; //提示性文本
+@color-border: #dfe1e6; //边框颜色
+@color-disabled: #dfe1e6; //不可用状态颜色
+@color-link: #477bef; //链接文本
+@color-highlight: #ff5712; //橙色高亮提示
+@color-warn: #f33920; //警告红色
+@color-btn-sure: #ffd630; //确认按钮
+@color-btn-cancel: transparent; //取消按钮
+@color-gradient-start: #ffd630; //渐变色起始
+@color-gradient-end: #fdc600; //渐变色结束
+@color-main-background: #f5f5f9; //页面背景
+// 以下颜色根据实际情况使用，没有确切含义
+@color-white: #fff;
+@color-black: #293040;
+@color-graw1: #717787;
+@color-graw2: #a1a6b3;
+@color-graw3: #dfe1e6;
+@color-blue: #477bef;
+@color-orange: #ff5712;
+@color-red: #f33920;
+@color-yellow: #ffd630;
+
+@border-single: 1px solid @color-border;  //正常边框
+@border-bold: 2px;    //粗边框
+@border-radius: 4px;  //圆角边框
+
+@h-head: 44px; //页面顶部高度
+@h-head-big: 52px; //页面顶部高度(适用于半屏弹层)
+@h-foot: 52px;  //页面底部高度
+@h-item: 56px; //列表行高
+@h-input: 22px; //输入框高度
+@h-btn: 52px; //通用按钮高度
+@h-line: 22px; //普通段落行高
+@h-item-detal: 40px;  //卡交易明细行高
+
+@dis-left-right: 16px; //默认左右边距
+@dis-top: 12px; //默认顶部距离
+@dis-title-both: 66px; //默认view的标题距离两边的距离
+@dis-text: 10px; // 文本间隔
+@dis-top-1: 20px;  //较高间距
+@dis-title: 50px;  //特殊页面标题和顶部的间距
+
+@radius-half-page:8px;//所以半屏弹出层顶部的圆角
+
+@family-normal: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "PingFang SC",
+ "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "sans-serif";
+@family-password: "Microsoft YaHei", "sans-serif";
+@family-number: "DINPro-medium";
+@font-title: 18px;
+@font-big-title: 24px;
+@font-big-number: 36px;
+@font-content: 16px;
+
+@font-text: 14px;
+@font-description: 12px;
+
+@icon-size: 32px;  //图标大小
+@icon-small: 20px;  //小图标
+
+@z-header: 100;  //顶部标题栏层级
+@z-footer: 100;  //底部栏层级
+@z-content: 1;   //中间内容层级
+@z-view: 1;      //view页面层级
+@z-modal: 200;   //弹出层页面层级
+@z-message: 300;  //短信验证码
+@z-password: 300; //密码键盘，这里要注意的是，三方密码键盘提供的z-index是99999,现已改为888
+@z-popup: 999;   //弹出提示框层级
+
+/* 字体颜色 */
+.color-head{color: @color-head;}
+.color-title{color: @color-title;}
+.color-content{color: @color-content;}
+.color-description{color: @color-description;}
+.color-disabled{color: @color-disabled;}
+.color-link{color: @color-link;}
+.color-highlight{color: @color-highlight;}
+.color-warn{color: @color-warn;}
+.color-white{color: @color-white;}
+.color-black{color: @color-black;}
+.color-graw1{color: @color-graw1;}
+.color-graw2{color: @color-graw2;}
+.color-graw3{color: @color-graw3;}
+.color-blue{color: @color-blue;}
+.color-orange{color: @color-orange;}
+.color-red{color: @color-red;}
+.color-yellow{color: @color-yellow;} 
+
+.radius-half-page{
+  border-top-left-radius: @radius-half-page;
+  border-top-right-radius: @radius-half-page;
+}
+
+/* 字体大小 */
+.font-12 {
+  font-size: 12px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.font-32 {
+  font-size: 32px;
+}
+
+.font-36 {
+  font-size: 36px;
+}
+
+.font-40 {
+  font-size: 40px;
+}
+/* 定位 */
+.relative {
+  position: relative;
+}
+/* 字体位置 */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+.width90{
+  width: 90%;
+}
+.plpr16{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.margin16 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.bg-white{
+  background: white;
+}
+  /* 边框 */
+.border-base{
+  background-image: -webkit-linear-gradient(0deg, #dfe1e6, #dfe1e6 50%, transparent 50%);
+  background-image: -webkit-linear-gradient(0deg, #dfe1e6, #dfe1e6 50%, transparent 50%);
+  background-image: linear-gradient(0deg, #dfe1e6, #dfe1e6 50%, transparent 50%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.border-bottom {
+  .border-base();
+  background-position: bottom;
+}
+.border-top{
+  .border-base();
+  background-position: top;
+}
+.border-left{
+  .border-base();
+  background-position: left;
+}
+ 
+
+
+/* 动画 */
+@keyframes slideOutDown {
+
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes slideOutDown {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+.slideOutDown {
+  -webkit-animation: slideOutDown 0.3s;
+  animation: slideOutDown 0.3s;
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation: slideInDown 0.3s;
+  animation: slideInDown 0.3s;
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  to {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  to {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+.slideInUp {
+  -webkit-animation: slideInUp 0.3s;
+  animation: slideInUp 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn 0.3s;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation: fadeOut 0.3s;
+  animation: fadeOut 0.3s;
+}
+
+@-webkit-keyframes rotateLoading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: translate(0deg);
+  }
+  
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: translate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: translate(360deg);
+  }
+}
+
+@keyframes rotateLoading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: translate(0deg);
+  }
+  
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: translate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: translate(360deg);
+  }
+}
+
+.ellipsis{
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* transtion 效果 */
+ 
+/* 从底部滑出 */
+.tslide-in-down-enter-active,
+.tslide-in-down-leave-active {
+  transition: all .4s;
+}
+.tslide-in-down-enter,
+.tslide-in-down-leave-active {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+/* 从右边滑出 */
+.tslide-in-right-enter-active,
+.tslide-in-right-leave-active {
+  transition: all .4s;
+}
+
+.tslide-in-right-enter,
+.tslide-in-right-leave-active {
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+}
+ /* 淡入 */
+.tfade-in-enter-active, .tfade-in-leave-active {
+  transition: opacity .4s
+}
+.tfade-in-enter, .tfade-in-leave-active {
+  opacity: 0
+}
+
+
+ 
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.turn-right-leave,
+.turn-right-enter-to,
+.turn-left-leave,
+.turn-left-enter-to {
+  transform: translate3d(0, 0, 0);
+}
+.turn-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+.turn-left-enter-active,
+.turn-left-leave-active,
+.turn-right-enter-active,
+.turn-right-leave-active {
+  width: 100%;
+  position: absolute;
+  transition: transform .3s ease;
+}
+.turn-left-enter,
+.turn-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+.turn-right-enter {
+  transform: translate3d(-100%, 0, 0);
+}
+.turn-right-leave-active,
+.turn-left-leave-active {
+  z-index: 2;
+}
+
+/* 未选中，禁用*/ 
+.un-selected {
+  opacity: 0.4;
+}
+// 对应UI regular、medium加粗样式
+.font-weight-regular{
+  font-weight: 400;
+}
+.font-weight-medium{
+  font-weight: 600;
+}
+// flex布局
+.flex-box {
+  display: flex;
+}
+.flex-1 {
+  flex: 1;
+}
+.description {
+  font-size: @font-description;
+  color: @color-description;
+  padding-left: @dis-left-right;
+}
+.font-number {
+  font-family: @family-number;
+}
+button:disabled {
+  background-color: @color-disabled;
+}
